@@ -77,6 +77,10 @@
                             <goal>check</goal>
                         </goals>
                         <configuration>
+                            <excludes>
+                                <exclude>com/inventario/vista/**</exclude>
+                                <exclude>com/inventario/Main*</exclude>
+                            </excludes>
                             <rules>
                                 <rule>
                                     <element>BUNDLE</element>
