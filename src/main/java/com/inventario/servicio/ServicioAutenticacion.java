@@ -9,8 +9,6 @@ public class ServicioAutenticacion {
 
     public ServicioAutenticacion() {
         usuarios = new ArrayList<>();
-
-        // Usuarios de prueba
         usuarios.add(new Usuario("admin", "admin123", "Administrador"));
         usuarios.add(new Usuario("usuario", "user123", "Usuario Regular"));
     }

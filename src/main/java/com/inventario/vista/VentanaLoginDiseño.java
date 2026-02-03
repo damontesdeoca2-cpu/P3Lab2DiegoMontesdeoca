@@ -27,8 +27,6 @@ public class VentanaLoginDiseño extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(false);
-
-        // Panel principal con gradiente
         JPanel panelPrincipal = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
@@ -49,8 +47,6 @@ public class VentanaLoginDiseño extends JFrame {
 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
-
-        // Panel de contenido con fondo blanco y bordes redondeados
         JPanel panelContenido = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
@@ -64,8 +60,6 @@ public class VentanaLoginDiseño extends JFrame {
         panelContenido.setOpaque(false);
         panelContenido.setLayout(new GridBagLayout());
         panelContenido.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-
-        // Título
         JLabel lblTitulo = new JLabel("🏢 SISTEMA DE INVENTARIO");
         lblTitulo.setFont(new Font("Segoe UI", Font.BOLD, 20));
         lblTitulo.setForeground(new Color(52, 73, 94));
@@ -75,8 +69,6 @@ public class VentanaLoginDiseño extends JFrame {
         gbc.gridwidth = 2;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         panelContenido.add(lblTitulo, gbc);
-
-        // Usuario
         JLabel lblUsuario = new JLabel("👤 Usuario:");
         lblUsuario.setFont(new Font("Segoe UI", Font.BOLD, 14));
         lblUsuario.setForeground(new Color(52, 73, 94));
@@ -96,8 +88,6 @@ public class VentanaLoginDiseño extends JFrame {
         gbc.gridy = 1;
         gbc.anchor = GridBagConstraints.WEST;
         panelContenido.add(txtUsuario, gbc);
-
-        // Contraseña
         JLabel lblPassword = new JLabel("🔒 Contraseña:");
         lblPassword.setFont(new Font("Segoe UI", Font.BOLD, 14));
         lblPassword.setForeground(new Color(52, 73, 94));
@@ -115,8 +105,6 @@ public class VentanaLoginDiseño extends JFrame {
         gbc.gridy = 2;
         gbc.anchor = GridBagConstraints.WEST;
         panelContenido.add(txtPassword, gbc);
-
-        // Botones
         JPanel panelBotones = new JPanel(new FlowLayout(FlowLayout.CENTER, 15, 0));
         panelBotones.setOpaque(false);
 
@@ -171,12 +159,8 @@ public class VentanaLoginDiseño extends JFrame {
                 "¡Bienvenido " + usuarioAutenticado.getNombre() + "!",
                 "Login Exitoso",
                 JOptionPane.INFORMATION_MESSAGE);
-
-            // Abrir ventana principal
             VentanaMenuPrincipal ventanaPrincipal = new VentanaMenuPrincipal(usuarioAutenticado.getNombre());
             ventanaPrincipal.setVisible(true);
-
-            // Cerrar ventana de login
             this.dispose();
 
         } catch (LoginException e) {

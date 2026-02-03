@@ -28,11 +28,7 @@ public class VentanaMenuPrincipal extends JFrame {
         setSize(1100, 700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        
-        // Panel principal
         JPanel panelPrincipal = new JPanel(new BorderLayout());
-        
-        // Panel superior
         JPanel panelSuperior = new JPanel();
         panelSuperior.setBackground(new Color(44, 62, 80));
         panelSuperior.setLayout(new BorderLayout());
@@ -50,14 +46,10 @@ public class VentanaMenuPrincipal extends JFrame {
         
         panelSuperior.add(lblTitulo, BorderLayout.CENTER);
         panelSuperior.add(lblUsuario, BorderLayout.WEST);
-        
-        // Panel lateral (HU06 - Interfaz: Menú lateral)
         JPanel panelLateral = new JPanel();
         panelLateral.setBackground(new Color(52, 73, 94));
         panelLateral.setPreferredSize(new Dimension(250, getHeight()));
         panelLateral.setLayout(new BoxLayout(panelLateral, BoxLayout.Y_AXIS));
-        
-        // Título del menú
         JLabel lblMenuTitulo = new JLabel("📋 MENÚ PRINCIPAL");
         lblMenuTitulo.setFont(new Font("Segoe UI", Font.BOLD, 14));
         lblMenuTitulo.setForeground(new Color(189, 195, 199));
@@ -65,8 +57,6 @@ public class VentanaMenuPrincipal extends JFrame {
         lblMenuTitulo.setAlignmentX(Component.CENTER_ALIGNMENT);
         panelLateral.add(lblMenuTitulo);
         panelLateral.add(Box.createRigidArea(new Dimension(0, 10)));
-        
-        // Botones del menú (3 funcionales, 3 de diseño)
         String[] opcionesFuncionales = {
             "🔐 Cerrar Sesión",
             "➕ Registrar Producto",
@@ -79,8 +69,6 @@ public class VentanaMenuPrincipal extends JFrame {
             "⚙️ Configuración",
             "📈 Estadísticas"
         };
-        
-        // Sección Funcional
         JLabel lblFuncional = new JLabel("FUNCIONAL");
         lblFuncional.setFont(new Font("Segoe UI", Font.BOLD, 11));
         lblFuncional.setForeground(new Color(149, 165, 166));
@@ -105,8 +93,6 @@ public class VentanaMenuPrincipal extends JFrame {
         }
         
         panelLateral.add(Box.createRigidArea(new Dimension(0, 20)));
-        
-        // Sección Diseño
         JLabel lblDiseno = new JLabel("DISEÑO");
         lblDiseno.setFont(new Font("Segoe UI", Font.BOLD, 11));
         lblDiseno.setForeground(new Color(149, 165, 166));
@@ -121,49 +107,29 @@ public class VentanaMenuPrincipal extends JFrame {
         }
         
         panelLateral.add(Box.createVerticalGlue());
-        
-        // Footer lateral
         JLabel lblVersion = new JLabel("v1.0.0 © 2024");
         lblVersion.setFont(new Font("Segoe UI", Font.PLAIN, 10));
         lblVersion.setForeground(new Color(149, 165, 166));
         lblVersion.setBorder(BorderFactory.createEmptyBorder(10, 20, 20, 20));
         lblVersion.setAlignmentX(Component.CENTER_ALIGNMENT);
         panelLateral.add(lblVersion);
-        
-        // Panel de contenido con CardLayout
         cardLayout = new CardLayout();
         panelContenido = new JPanel(cardLayout);
         panelContenido.setBackground(Color.WHITE);
-        
-        // Pantalla de inicio
         JPanel panelInicio = crearPanelInicio();
         panelContenido.add(panelInicio, "INICIO");
-        
-        // Panel para Registrar Producto (HU02 - Funcional)
         JPanel panelRegistrarProducto = crearPanelRegistrarProducto();
         panelContenido.add(panelRegistrarProducto, "REGISTRAR_PRODUCTO");
-        
-        // Panel para Reporte Stock (HU03 - Funcional)
         JPanel panelReporteStock = crearPanelReporteStock();
         panelContenido.add(panelReporteStock, "REPORTE_STOCK");
-        
-        // Panel para Inventario (Funcional - tercera interfaz funcional)
         JPanel panelInventario = crearPanelInventario();
         panelContenido.add(panelInventario, "INVENTARIO");
-        
-        // Panel para Gestión Usuarios (Diseño)
         JPanel panelGestionUsuarios = crearPanelGestionUsuarios();
         panelContenido.add(panelGestionUsuarios, "GESTION_USUARIOS");
-        
-        // Panel para Configuración (Diseño)
         JPanel panelConfiguracion = crearPanelConfiguracion();
         panelContenido.add(panelConfiguracion, "CONFIGURACION");
-        
-        // Panel para Estadísticas (Diseño)
         JPanel panelEstadisticas = crearPanelEstadisticas();
         panelContenido.add(panelEstadisticas, "ESTADISTICAS");
-        
-        // Agregar paneles al frame
         panelPrincipal.add(panelSuperior, BorderLayout.NORTH);
         panelPrincipal.add(panelLateral, BorderLayout.WEST);
         panelPrincipal.add(panelContenido, BorderLayout.CENTER);
@@ -182,8 +148,6 @@ public class VentanaMenuPrincipal extends JFrame {
         boton.setFocusPainted(false);
         boton.setCursor(new Cursor(Cursor.HAND_CURSOR));
         boton.setMaximumSize(new Dimension(250, 45));
-        
-        // Efecto hover
         boton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 boton.setBackground(new Color(44, 62, 80));
@@ -231,8 +195,6 @@ public class VentanaMenuPrincipal extends JFrame {
         
         return panel;
     }
-    
-    // HU02 - Funcional: Registrar Producto
     private JPanel crearPanelRegistrarProducto() {
         JPanel panel = new JPanel(new GridBagLayout());
         panel.setBackground(new Color(245, 245, 245));
@@ -240,8 +202,6 @@ public class VentanaMenuPrincipal extends JFrame {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.insets = new Insets(10, 20, 10, 20);
-        
-        // Título
         JLabel lblTitulo = new JLabel("➕ REGISTRAR NUEVO PRODUCTO");
         lblTitulo.setFont(new Font("Segoe UI", Font.BOLD, 18));
         lblTitulo.setForeground(new Color(44, 62, 80));
@@ -255,8 +215,6 @@ public class VentanaMenuPrincipal extends JFrame {
         lblDescTitulo.setForeground(new Color(127, 140, 141));
         gbc.gridy = 1;
         panel.add(lblDescTitulo, gbc);
-        
-        // Formulario
         gbc.gridwidth = 1;
         gbc.insets = new Insets(15, 20, 5, 20);
         
@@ -321,8 +279,6 @@ public class VentanaMenuPrincipal extends JFrame {
         ));
         gbc.gridx = 1;
         panel.add(spinnerCantidad, gbc);
-        
-        // Botones
         JPanel panelBotones = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 0));
         panelBotones.setBackground(new Color(245, 245, 245));
         
@@ -338,8 +294,6 @@ public class VentanaMenuPrincipal extends JFrame {
                 String descripcion = txtDescripcion.getText().trim();
                 double precio = (Double) spinnerPrecio.getValue();
                 int cantidad = (Integer) spinnerCantidad.getValue();
-                
-                // HU02 - Validación funcional
                 if (nombre.isEmpty()) {
                     JOptionPane.showMessageDialog(this, 
                         "El nombre del producto no puede estar vacío", 
@@ -360,8 +314,6 @@ public class VentanaMenuPrincipal extends JFrame {
                         "Error de Validación", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
-                
-                // Registrar producto
                 Producto nuevoProducto = servicioProducto.registrarProducto(nombre, descripcion, precio, cantidad);
                 
                 String mensaje = "✅ Producto registrado exitosamente:\n" +
@@ -375,15 +327,11 @@ public class VentanaMenuPrincipal extends JFrame {
                     mensaje,
                     "Registro Exitoso",
                     JOptionPane.INFORMATION_MESSAGE);
-                
-                // Limpiar formulario
                 txtNombre.setText("");
                 txtDescripcion.setText("");
                 spinnerPrecio.setValue(0.0);
                 spinnerCantidad.setValue(0);
                 txtNombre.requestFocus();
-                
-                // Actualizar inventario si está visible
                 actualizarTablaInventario();
                 
             } catch (ProductoException ex) {
@@ -422,13 +370,9 @@ public class VentanaMenuPrincipal extends JFrame {
         
         return panel;
     }
-    
-    // HU03 - Funcional: Reporte Stock Bajo
     private JPanel crearPanelReporteStock() {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(new Color(245, 245, 245));
-        
-        // Panel superior
         JPanel panelSuperior = new JPanel(new GridBagLayout());
         panelSuperior.setBackground(new Color(245, 245, 245));
         panelSuperior.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
@@ -448,8 +392,6 @@ public class VentanaMenuPrincipal extends JFrame {
         lblDescripcion.setForeground(new Color(127, 140, 141));
         gbc.gridy = 1;
         panelSuperior.add(lblDescripcion, gbc);
-        
-        // Botón para generar reporte
         JButton btnGenerarReporte = new JButton("🖨️ GENERAR REPORTE");
         btnGenerarReporte.setFont(new Font("Segoe UI", Font.BOLD, 14));
         btnGenerarReporte.setForeground(Color.WHITE);
@@ -457,7 +399,6 @@ public class VentanaMenuPrincipal extends JFrame {
         btnGenerarReporte.setBorder(BorderFactory.createEmptyBorder(10, 30, 10, 30));
         btnGenerarReporte.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnGenerarReporte.addActionListener(e -> {
-            // HU03 - Funcional: Generar reporte usando Streams
             servicioProducto.imprimirReporteStockBajo(5);
             
             JOptionPane.showMessageDialog(this,
@@ -469,8 +410,6 @@ public class VentanaMenuPrincipal extends JFrame {
         
         gbc.gridy = 2;
         panelSuperior.add(btnGenerarReporte, gbc);
-        
-        // Panel central con resultados
         JPanel panelCentral = new JPanel(new BorderLayout());
         panelCentral.setBackground(Color.WHITE);
         panelCentral.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
@@ -480,8 +419,6 @@ public class VentanaMenuPrincipal extends JFrame {
         txtResultados.setEditable(false);
         txtResultados.setBackground(new Color(248, 249, 250));
         txtResultados.setBorder(BorderFactory.createLineBorder(new Color(189, 195, 199), 1));
-        
-        // Obtener productos con stock bajo
         ArrayList<Producto> productosBajo = servicioProducto.obtenerProductosStockBajo(5);
         StringBuilder sb = new StringBuilder();
         sb.append("REPORTE DE STOCK BAJO - ").append(new java.util.Date()).append("\n");
@@ -514,13 +451,9 @@ public class VentanaMenuPrincipal extends JFrame {
         
         return panel;
     }
-    
-    // Funcional: Panel de Inventario (tercera interfaz funcional)
     private JPanel crearPanelInventario() {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(new Color(245, 245, 245));
-        
-        // Encabezado
         JPanel panelEncabezado = new JPanel(new BorderLayout());
         panelEncabezado.setBackground(Color.WHITE);
         panelEncabezado.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
@@ -528,8 +461,6 @@ public class VentanaMenuPrincipal extends JFrame {
         JLabel lblTitulo = new JLabel("📋 INVENTARIO DE PRODUCTOS");
         lblTitulo.setFont(new Font("Segoe UI", Font.BOLD, 18));
         lblTitulo.setForeground(new Color(44, 62, 80));
-        
-        // Botón para actualizar
         JButton btnActualizar = new JButton("🔄 ACTUALIZAR");
         btnActualizar.setFont(new Font("Segoe UI", Font.BOLD, 12));
         btnActualizar.setForeground(Color.WHITE);
@@ -537,8 +468,6 @@ public class VentanaMenuPrincipal extends JFrame {
         btnActualizar.setBorder(BorderFactory.createEmptyBorder(8, 20, 8, 20));
         btnActualizar.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnActualizar.addActionListener(e -> actualizarTablaInventario());
-        
-        // Botón para editar
         JButton btnEditar = new JButton("✏️ EDITAR");
         btnEditar.setFont(new Font("Segoe UI", Font.BOLD, 12));
         btnEditar.setForeground(Color.WHITE);
@@ -546,8 +475,6 @@ public class VentanaMenuPrincipal extends JFrame {
         btnEditar.setBorder(BorderFactory.createEmptyBorder(8, 20, 8, 20));
         btnEditar.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnEditar.addActionListener(e -> editarProductoSeleccionado());
-        
-        // Botón para eliminar
         JButton btnEliminar = new JButton("🗑️ ELIMINAR");
         btnEliminar.setFont(new Font("Segoe UI", Font.BOLD, 12));
         btnEliminar.setForeground(Color.WHITE);
@@ -555,8 +482,6 @@ public class VentanaMenuPrincipal extends JFrame {
         btnEliminar.setBorder(BorderFactory.createEmptyBorder(8, 20, 8, 20));
         btnEliminar.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnEliminar.addActionListener(e -> eliminarProductoSeleccionado());
-        
-        // Botón para exportar
         JButton btnExportar = new JButton("📤 EXPORTAR");
         btnExportar.setFont(new Font("Segoe UI", Font.BOLD, 12));
         btnExportar.setForeground(Color.WHITE);
@@ -580,8 +505,6 @@ public class VentanaMenuPrincipal extends JFrame {
         
         panelEncabezado.add(lblTitulo, BorderLayout.WEST);
         panelEncabezado.add(panelBotones, BorderLayout.EAST);
-        
-        // Tabla de inventario
         String[] columnas = {"ID", "Nombre", "Descripción", "Precio", "Cantidad", "Estado"};
         modeloInventario = new DefaultTableModel(columnas, 0);
         
@@ -593,22 +516,14 @@ public class VentanaMenuPrincipal extends JFrame {
         tablaInventario.getTableHeader().setForeground(Color.WHITE);
         tablaInventario.setSelectionBackground(new Color(220, 237, 200));
         tablaInventario.setSelectionForeground(Color.BLACK);
-        
-        // Configurar renderizador para columna de estado
         tablaInventario.getColumnModel().getColumn(3).setCellRenderer(new EstadoCellRenderer());
         
         JScrollPane scrollPane = new JScrollPane(tablaInventario);
         scrollPane.setBorder(BorderFactory.createLineBorder(new Color(189, 195, 199), 1));
-        
-        // Panel de estadísticas
         JPanel panelEstadisticas = new JPanel(new FlowLayout(FlowLayout.LEFT, 20, 10));
         panelEstadisticas.setBackground(Color.WHITE);
         panelEstadisticas.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
-        
-        // Actualizar tabla inicialmente
         actualizarTablaInventario();
-        
-        // Actualizar estadísticas
         actualizarEstadisticas(panelEstadisticas);
         
         panel.add(panelEncabezado, BorderLayout.NORTH);
@@ -677,8 +592,6 @@ public class VentanaMenuPrincipal extends JFrame {
         panelEstadisticas.revalidate();
         panelEstadisticas.repaint();
     }
-    
-    // Renderizador personalizado para columna de estado
     class EstadoCellRenderer extends DefaultTableCellRenderer {
         @Override
         public Component getTableCellRendererComponent(JTable table, Object value,
@@ -703,8 +616,6 @@ public class VentanaMenuPrincipal extends JFrame {
             return c;
         }
     }
-    
-    // HU05 - Interfaz: Gestión de Usuarios (Diseño)
     private JPanel crearPanelGestionUsuarios() {
         JPanel panel = new JPanel(new GridBagLayout());
         panel.setBackground(new Color(245, 245, 245));
@@ -726,8 +637,6 @@ public class VentanaMenuPrincipal extends JFrame {
         lblDescripcion.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         gbc.gridy = 1;
         panel.add(lblDescripcion, gbc);
-        
-        // Tarjetas de usuarios (simulación)
         JPanel panelUsuarios = new JPanel(new GridLayout(1, 3, 20, 0));
         panelUsuarios.setBackground(new Color(245, 245, 245));
         panelUsuarios.setBorder(BorderFactory.createEmptyBorder(30, 20, 30, 20));
@@ -765,13 +674,9 @@ public class VentanaMenuPrincipal extends JFrame {
         
         return panel;
     }
-    
-    // Interfaz: Configuración (Diseño)
     private JPanel crearPanelConfiguracion() {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(new Color(245, 245, 245));
-        
-        // Panel principal
         JPanel panelPrincipal = new JPanel(new GridBagLayout());
         panelPrincipal.setBackground(Color.WHITE);
         panelPrincipal.setBorder(BorderFactory.createEmptyBorder(40, 40, 40, 40));
@@ -787,8 +692,6 @@ public class VentanaMenuPrincipal extends JFrame {
         gbc.gridy = 0;
         gbc.gridwidth = 2;
         panelPrincipal.add(lblTitulo, gbc);
-        
-        // Opciones de configuración (simuladas)
         String[] opciones = {
             "Configuración General",
             "Preferencias de Usuario", 
@@ -815,8 +718,6 @@ public class VentanaMenuPrincipal extends JFrame {
             gbc.gridx = 1;
             panelPrincipal.add(btnConfigurar, gbc);
         }
-        
-        // Nota
         JLabel lblNota = new JLabel("<html><div style='text-align: center; color: #7f8c8d; margin-top: 30px;'>"
                 + "<i>Esta sección está en modo diseño. Las funcionalidades estarán disponibles próximamente.</i>"
                 + "</div></html>");
@@ -829,13 +730,9 @@ public class VentanaMenuPrincipal extends JFrame {
         
         return panel;
     }
-    
-    // Interfaz: Estadísticas (Diseño) - CORREGIDO
     private JPanel crearPanelEstadisticas() {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(new Color(245, 245, 245));
-        
-        // Encabezado
         JPanel panelEncabezado = new JPanel(new FlowLayout(FlowLayout.CENTER));
         panelEncabezado.setBackground(new Color(44, 62, 80));
         panelEncabezado.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0));
@@ -844,8 +741,6 @@ public class VentanaMenuPrincipal extends JFrame {
         lblTitulo.setFont(new Font("Segoe UI", Font.BOLD, 24));
         lblTitulo.setForeground(Color.WHITE);
         panelEncabezado.add(lblTitulo);
-        
-        // Panel de gráficos (simulados)
         JPanel panelGraficos = new JPanel(new GridLayout(2, 2, 20, 20));
         panelGraficos.setBackground(new Color(245, 245, 245));
         panelGraficos.setBorder(BorderFactory.createEmptyBorder(40, 40, 40, 40));
@@ -873,16 +768,12 @@ public class VentanaMenuPrincipal extends JFrame {
             lblGrafico.setFont(new Font("Segoe UI", Font.BOLD, 14));
             lblGrafico.setForeground(color);
             lblGrafico.setHorizontalAlignment(SwingConstants.CENTER);
-            
-            // Simulación de gráfico - SIN variable i en la clase anónima
             JPanel panelSimulacion = new JPanel() {
                 @Override
                 protected void paintComponent(Graphics g) {
                     super.paintComponent(g);
                     Graphics2D g2d = (Graphics2D) g;
                     g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-                    
-                    // Dibujar gráfico simple usando la variable final
                     g2d.setColor(color);
                     g2d.fillRect(20, 20, 50, 50);
                     g2d.setColor(Color.BLACK);
@@ -941,8 +832,6 @@ public class VentanaMenuPrincipal extends JFrame {
         String descripcionActual = (String) modeloInventario.getValueAt(filaSeleccionada, 2);
         double precioActual = (Double) modeloInventario.getValueAt(filaSeleccionada, 3);
         int cantidadActual = (Integer) modeloInventario.getValueAt(filaSeleccionada, 4);
-        
-        // Crear diálogo de edición
         JTextField txtNombre = new JTextField(nombreActual);
         JTextField txtDescripcion = new JTextField(descripcionActual);
         JSpinner spinnerPrecio = new JSpinner(new SpinnerNumberModel(precioActual, 0.0, 10000.0, 0.01));

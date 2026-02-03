@@ -35,7 +35,6 @@ public class VentanaLogin extends JFrame {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
 
-        // Título
         JLabel lblTitulo = new JLabel("🏢 SISTEMA DE INVENTARIO");
         lblTitulo.setFont(new Font("Segoe UI", Font.BOLD, 18));
         lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -45,7 +44,6 @@ public class VentanaLogin extends JFrame {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         panelPrincipal.add(lblTitulo, gbc);
 
-        // Usuario
         JLabel lblUsuario = new JLabel("👤 Usuario:");
         lblUsuario.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         gbc.gridx = 0;
@@ -59,7 +57,6 @@ public class VentanaLogin extends JFrame {
         gbc.gridy = 1;
         panelPrincipal.add(txtUsuario, gbc);
 
-        // Contraseña
         JLabel lblPassword = new JLabel("🔒 Contraseña:");
         lblPassword.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         gbc.gridx = 0;
@@ -72,7 +69,6 @@ public class VentanaLogin extends JFrame {
         gbc.gridy = 2;
         panelPrincipal.add(txtPassword, gbc);
 
-        // Botones
         JPanel panelBotones = new JPanel(new FlowLayout());
 
         btnLogin = new JButton("🚀 Iniciar Sesión");
@@ -122,11 +118,9 @@ public class VentanaLogin extends JFrame {
                 "Login Exitoso",
                 JOptionPane.INFORMATION_MESSAGE);
 
-            // Abrir ventana principal
             VentanaMenuPrincipal ventanaPrincipal = new VentanaMenuPrincipal(usuarioAutenticado.getNombre());
             ventanaPrincipal.setVisible(true);
 
-            // Cerrar ventana de login
             this.dispose();
 
         } catch (LoginException e) {

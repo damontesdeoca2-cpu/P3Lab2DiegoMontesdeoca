@@ -14,22 +14,18 @@ public class ServicioProducto {
     }
     
     public Producto registrarProducto(String nombre, String descripcion, double precio, int cantidad) throws ProductoException {
-        // Validación de nombre
         if (nombre == null || nombre.trim().isEmpty()) {
             throw new ProductoException("El nombre del producto no puede estar vacío");
         }
         
-        // Validación de precio no negativo
         if (precio < 0) {
             throw new ProductoException("El precio no puede ser negativo");
         }
         
-        // Validación de cantidad no negativa
         if (cantidad < 0) {
             throw new ProductoException("La cantidad no puede ser negativa");
         }
         
-        // Verificar si el producto ya existe (case insensitive)
         for (Producto p : productos) {
             if (p.getNombre().equalsIgnoreCase(nombre.trim())) {
                 throw new ProductoException("Ya existe un producto con el nombre: " + nombre);
@@ -76,7 +72,6 @@ public class ServicioProducto {
         
         Producto producto = buscarPorId(id);
         
-        // Verificar si el nuevo nombre ya existe en otro producto
         for (Producto p : productos) {
             if (p.getId() != id && p.getNombre().equalsIgnoreCase(nuevoNombre.trim())) {
                 throw new ProductoException("Ya existe un producto con el nombre: " + nuevoNombre);
@@ -94,14 +89,12 @@ public class ServicioProducto {
         productos.remove(producto);
     }
     
-    // Método para generar reporte de stock bajo usando Streams
     public ArrayList<Producto> obtenerProductosStockBajo(int cantidadMinima) {
         return productos.stream()
                 .filter(p -> p.getCantidad() < cantidadMinima)
                 .collect(java.util.stream.Collectors.toCollection(ArrayList::new));
     }
     
-    // Método para imprimir reporte en consola
     public void imprimirReporteStockBajo(int cantidadMinima) {
         System.out.println("\n========================================");
         System.out.println("   REPORTE DE STOCK BAJO");
@@ -130,7 +123,6 @@ public class ServicioProducto {
         System.out.println("========================================\n");
     }
     
-    // Método para obtener estadísticas
     public int getTotalProductos() {
         return productos.size();
     }
